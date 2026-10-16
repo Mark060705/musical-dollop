@@ -26,7 +26,7 @@ function Szoba({szoba, index, helyetfoglal}: SzobaProps) {
         <p>Emelet {szoba.emelet}</p>
         <p>Férőhely {szoba.ferohely}</p>
         <p>Foglalt helyek {szoba.foglalt_helyek}</p>
-        <button onClick={()=>{helyetfoglal({index})}}>Helyet foglalok</button>
+        <button onClick={()=>{helyetfoglal(index)}}>Helyet foglalok</button>
    </div>
   )
 }
