@@ -1,22 +1,26 @@
 import './App.css'
+import { useState } from 'react'
 import Szobak from './components/szobak'
 import { TANULOSZOBAK } from "./adatok";
 
-function helyetfoglal(index:number) {
-    
-    if (TANULOSZOBAK[index].ferohely > TANULOSZOBAK[index].foglalt_helyek) {
-      TANULOSZOBAK[index].foglalt_helyek++
-    }
-}
+
 
 function App() {
+  const [szobak, setSzobak] = useState(TANULOSZOBAK)
   
-  
+  function helyetfoglal(index:number) {
+    setSzobak(aktualisSzobak => aktualisSzobak.map((szoba, szobaIndex) => {
+      if (szobaIndex === index && szoba.foglalt_helyek < szoba.ferohely) {
+        return { ...szoba, foglalt_helyek: szoba.foglalt_helyek + 1 }
+      }
+      return szoba
+    }))
+  }
 
   return (
     <>
 
-      <Szobak lista={TANULOSZOBAK} helyetfoglal={helyetfoglal}/>
+      <Szobak lista={szobak} helyetfoglal={helyetfoglal}/>
     </>
   )
 }
