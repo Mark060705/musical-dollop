@@ -2,6 +2,16 @@
 type szobatipusok =  "egyéni tanulás"| "csoportmunka"|  "számítógépes terem"| "csendes olvasóterem";
 /* határozd meg a további szükséges típusokat */
 
+export interface SzobaType {
+    id:number,
+    szoba_nev:string,
+    szobatipus:szobatipusok,
+    emelet:number,
+    ferohely:number,
+    foglalt_helyek:number
+}
+
+
 export const TANULOSZOBAK = [
     {
         id: 1,
