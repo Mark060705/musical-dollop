@@ -2,11 +2,22 @@ import React from 'react'
 import type { SzobaType } from "../adatok";
 
 interface SzobaProps {
-    szoba:SzobaType,
-    index:number
+    szoba:SzobaType,    
 }
 
-function Szoba({szoba, index}: SzobaProps) {
+function helyetfoglal({szoba}: SzobaProps) {
+    
+    if (szoba.ferohely > szoba.foglalt_helyek) {
+      szoba.foglalt_helyek++
+    }
+
+    
+}
+  
+  
+
+
+function Szoba({szoba}: SzobaProps) {
 
   return (
    <div>
@@ -17,7 +28,7 @@ function Szoba({szoba, index}: SzobaProps) {
         <p>Emelet {szoba.emelet}</p>
         <p>Férőhely {szoba.ferohely}</p>
         <p>Foglalt helyek {szoba.foglalt_helyek}</p>
-        <button>Helyet foglalok</button>
+        <button onClick={()=>helyetfoglal(szoba)}>Helyet foglalok</button>
    </div>
   )
 }

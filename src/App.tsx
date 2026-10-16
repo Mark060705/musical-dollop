@@ -4,6 +4,7 @@ import { TANULOSZOBAK } from "./adatok";
 
 function App() {
   
+  
 
   return (
     <>

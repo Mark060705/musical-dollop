@@ -4,6 +4,7 @@ import Szoba from "./szoba";
 
 interface SzobakProps {
     lista:SzobaType[]
+    
 }
 
 function Szobak({lista}:SzobakProps) {
@@ -11,7 +12,7 @@ function Szobak({lista}:SzobakProps) {
     <div className='szobak'>
         {
             lista.map((e, i) => {
-                return <Szoba szoba={e} index={i} key={i}/>
+                return <Szoba szoba={e} key={i}/>
                 }
             )
         }
